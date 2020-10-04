@@ -200,7 +200,7 @@
         <scene sceneID="DcI-eO-7Wl">
             <objects>
                 <viewControllerPlaceholder storyboardName="Search" id="NKa-0x-Mps" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nYE-Sl-N5g"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="nYE-Sl-N5g"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSD-rc-neU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,5 +220,6 @@
     <resources>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>
 </document>
