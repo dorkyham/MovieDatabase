@@ -131,5 +131,29 @@ class LocalDatabase {
 
         return results.count > 0
     }
+    
+    func deleteRecordsWithID(id:Int){
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteMovie")
+        request.predicate = NSPredicate(format: "id = %d", id)
+        
+        if let results = try? context.fetch(request) as? [NSManagedObject] {
+            // Delete _all_ objects:
+            for object in results {
+                context.delete(object)
+            }
+
+            // Or delete first object:
+            if results.count > 0 {
+                context.delete(results[0])
+            }
+
+        } else {
+            // ... fetch failed, report error
+            print("error executing fetch request")
+        }
+    }
 }
 
