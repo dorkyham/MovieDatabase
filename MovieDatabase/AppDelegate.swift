@@ -13,9 +13,19 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    let currentUser = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+            
+        if !launchedBefore {
+            print("First launch, setting UserDefault.")
+            DispatchQueue.main.async {
+                LocalDatabase().loadData()
+            }
+            currentUser.set(true, forKey: "launchedBefore")
+        }
         return true
     }
 
